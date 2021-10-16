@@ -22,7 +22,7 @@
         <td><a href="#" [routerLink] ="['/movies/', 'movie', movies.id ]">{{ movies.title }}</a></td>
         <td>{{ movies.synopsis }}</td>
         <td>{{ movies.year }}</td>
-        <td><div class="col-sm-3"><img class="images" src={{movies.cover}}/></div></td>
+        <td><img class="images" class="img-responsive" width="100" src={{movies.cover}}/></td>
         <td>
           <a href="#" [routerLink]="['/movies/', 'edit', movies.id  ]" class="btn btn-primary">Editar</a>
           <button type="button" (click)="deleteMovies(movies.id)" class="btn btn-danger">Borrar</button>
