@@ -1,0 +1,33 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Lista de películas
+      </h4>
+      <a routerLink="/movies/create" class="btn btn-success">Guardar nueva película</a>
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Sinopsis</th>
+        <th>Año</th>
+        <th>Portada</th>
+        <th width="220px"></th>
+      </tr>
+      <tr *ngFor="let movies of moviess">
+        <td>{{ movies.id }}</td>
+        <td><a href="#" [routerLink] ="['/movies/', 'movie', movies.id ]">{{ movies.title }}</a></td>
+        <td>{{ movies.synopsis }}</td>
+        <td>{{ movies.year }}</td>
+        <td>{{ movies.cover }}</td>
+        <td>
+          <a href="#" [routerLink]="['/movies/', 'edit', movies.id  ]" class="btn btn-primary">Editar</a>
+          <button type="button" (click)="deleteMovies(movies.id)" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </table>
+ </section>
+
