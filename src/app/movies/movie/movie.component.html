@@ -2,6 +2,7 @@
     <h4>Película</h4>
     <a href="#" routerLink="/movies/index" class="btn btn-primaryt">Regresar</a>
 </div>
+
 <hr>
 <div class="card">
     <div class="card-header">
@@ -13,7 +14,28 @@
             <p><img class="images" class="img-responsive" width="300" src={{movies.cover}}/></p>
         </div>
     </div>
+    <div class="card-footer">
+        <button class="btn btn-danger" (click)="triggerModal(modalData)">Borrar</button>
+        <a href="#" [routerLink]="['/movies/', 'edit', movies.id  ]" class="btn btn-primary mx-3">Editar</a>
+    </div>
 </div>
 
-
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">La acción no se puede revertir</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p><strong>¿Quieres borrar <span class="text-primary">"{{ movies.title }}"</span>?</strong></p>
+    
+    <p>Todos los datos serán eliminados de forma permanente.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.dismiss('Delete')">Borrar</button>
+    <button type="button" class="btn btn-info" (click)="modal.close('Save click')">Cancelar</button>
+  </div>
+</ng-template>
 

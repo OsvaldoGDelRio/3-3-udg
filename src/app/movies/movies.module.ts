@@ -10,6 +10,7 @@ import { MovieComponent } from './movie/movie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     IndexComponent,
